@@ -51,11 +51,8 @@ class PenguinRewritten:
                 )   
                 
     async def add_coins(self, amount):
-        logger.info('Adding coins...')
-        
-                
-                
-            
+        logger.info('Adding coins...')          
+           
     async def join_room(self):
         await self.send_json(
             action='navigation:join_room',
