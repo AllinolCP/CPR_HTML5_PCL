@@ -63,7 +63,7 @@ class PenguinRewritten:
         while not self.socket.closed:
             try:
                 message = await self.socket.recv()
-                await self.handle_json_data(message)
+                await self.handle_json_data(json.loads(message))
             except websockets.exceptions.ConnectionClosedError:
                 logger.info('Client has disconnected from the server')
         
@@ -81,7 +81,6 @@ class PenguinRewritten:
         await self.send_line(json.dumps(data))
         
     async def handle_json_data(self, data):
-        data = json.loads(data)
         logger.info(f'Received JSON data: {data}')
         packet_id = data['action']
         packet_data = data['params']
