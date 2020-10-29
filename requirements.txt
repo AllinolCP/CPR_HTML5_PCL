@@ -1,0 +1,6 @@
+asynccmd==0.2.4
+websockets==8.1
+loguru==0.5.3
+awebus==1.0a6
+hachiko==0.3.0
+secrets==1.0.2
