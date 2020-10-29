@@ -31,7 +31,7 @@ else:
     loop = asyncio.get_event_loop()
     mode = "Reader"
 # create instance
-cmd = PCL_CPR(mode=mode, intro="This is example", prompt="example> ")
+cmd = PCL_CPR(mode=mode, intro="CPR PCL", prompt="> ")
 cmd.start(loop)  # prepaire instance
 try:
     loop.run_forever()  # our cmd will run automatilly from this moment
