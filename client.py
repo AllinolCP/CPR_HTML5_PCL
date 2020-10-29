@@ -40,7 +40,6 @@ class PenguinRewritten:
         except KeyError:
             logger.error('Please enter a valid server!')
 
-
     async def add_free_items(self):
         logger.info('Adding items...')
         for item in self.crumbs['item']:
@@ -53,12 +52,12 @@ class PenguinRewritten:
     async def add_coins(self, amount):
         logger.info('Adding coins...')          
            
-    async def join_room(self):
+    async def join_room(self, room_id=-1, x=-1, y=-1):
         await self.send_json(
             action='navigation:join_room',
-            params=[-1,-1,-1]
+            params=[room_id, x, y]
         )
-
+        
     async def listen(self):
         while not self.socket.closed:
             try:
@@ -86,6 +85,6 @@ class PenguinRewritten:
         packet_data = data['params']
         packet = JSONPacket(packet_id)
         await event.emit(packet, self, *packet_data)
-
+        
     def __repr__(self):
         return f'<Spheniscidae {self.username}>'
